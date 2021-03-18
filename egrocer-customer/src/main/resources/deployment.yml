@@ -1,9 +1,9 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: springboot-k8s-mysql
+  name: egrocer-customer
   labels:
-    name: springboot-k8s-mysql
+    name: egrocer-customer
 spec:
   ports:
     - nodePort: 30163 
@@ -11,27 +11,27 @@ spec:
       targetPort: 8080  
       protocol: TCP
   selector:           
-    app: springboot-k8s-mysql
+    app: egrocer-customer
   type: NodePort       
 
 ---
 apiVersion: apps/v1 
 kind: Deployment    
 metadata:              
-  name: springboot-k8s-mysql
+  name: egrocer-customer
 spec:                
   selector:         
     matchLabels:
-      app: springboot-k8s-mysql
+      app: egrocer-customer
   replicas: 3        
   template:
     metadata:
       labels:        
-        app: springboot-k8s-mysql
+        app: egrocer-customer
     spec:
       containers:
-        - name: springboot-k8s-mysql
-          image: springboot-k8s-mysql:1.0
+        - name: egrocer-customer
+          image: egrocer-customer
           ports:
             - containerPort: 8080                
           env:   # Setting Enviornmental Variables
