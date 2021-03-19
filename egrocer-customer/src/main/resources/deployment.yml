@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
         - name: egrocer-customer
-          image: egrocer-customer
+          image: linjudock19/egrocer-customer
           ports:
             - containerPort: 80                
           env:   # Setting Enviornmental Variables
