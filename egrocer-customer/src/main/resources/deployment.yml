@@ -5,14 +5,12 @@ metadata:
   labels:
     name: egrocer-customer
 spec:
+  type: LoadBalancer
   ports:
-    - nodePort: 30163 
-      port: 8080      
-      targetPort: 8080  
+      port: 80  
       protocol: TCP
   selector:           
-    app: egrocer-customer
-  type: NodePort       
+    app: egrocer-customer      
 
 ---
 apiVersion: apps/v1 
@@ -33,7 +31,7 @@ spec:
         - name: egrocer-customer
           image: egrocer-customer
           ports:
-            - containerPort: 8080                
+            - containerPort: 80                
           env:   # Setting Enviornmental Variables
           - name: DB_HOST   # Setting Database host address from configMap
             valueFrom: 
