@@ -53,4 +53,9 @@ public class AuthenticationController {
 	public ResponseEntity<?> saveUser(@RequestBody Customer user) throws Exception {
 		return ResponseEntity.ok(userDetailsService.save(user));
 	}
+	
+	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
+	public ResponseEntity<?> welcome() throws Exception {
+		return ResponseEntity.ok("Welcome to EGrocer");
+	}
 }
