@@ -22,7 +22,7 @@ spec:
   selector:         
     matchLabels:
       app: egrocer-customer
-  replicas: 3        
+  replicas: 1        
   template:
     metadata:
       labels:        
